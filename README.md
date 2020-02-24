@@ -9,6 +9,7 @@ Using SQL to answer specific questions for an organization and make inferences b
 
 #
 Yelp Data Set
+
 https://www.yelp.com/dataset/challenge
 
 #
