@@ -21,6 +21,7 @@ Entity relationship diagram for the Yelp Data Set
 Part 1: Yelp Dataset Profiling and Understanding
 
 #
+
 1. Data Profiling: Finding total number of records for each of the tables
 
 ```
@@ -47,6 +48,7 @@ xi. user table = 10000
 ```
 
 #
+
 2. Find distinct records, either by foreign key or primary key
 
 ```
@@ -129,6 +131,7 @@ From Elite_Years
 ```
 
 #
+
 3. Columns with null values in the Users table? Indicate "yes," or "no."
 Answer: NO
 	
@@ -182,6 +185,7 @@ Answer: NO
 ```
 
 #
+
 4. Data aggregation, the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
 
 i. Table: Review, Column: Stars
@@ -246,6 +250,7 @@ v. Table: User, Column: Review_count
 ```
 
 #
+
 5. List cities with the most reviews in descending order:
 
 SQL code used to arrive at answer:
@@ -297,6 +302,7 @@ SQL code used to arrive at answer:
 ```
 
 #
+
 6. Find the distribution of star ratings to the business in the following cities:
 
 SQL code
@@ -391,6 +397,7 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 ```
 
 #
+
 7. Find the top 3 users based on their total number of reviews:
 
 SQL code used to arrive at answer:
@@ -416,6 +423,7 @@ SQL code used to arrive at answer:
 ```
 
 #
+
 8. Does posing more reviews correlate with more fans?
 	
 NO
@@ -477,6 +485,7 @@ SQL code used to arrive at answer:
 ```
 
 #
+
 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
 Answer: with word 'love'
@@ -521,9 +530,11 @@ SQL code used to arrive at answer:
 ```
 
 #
+
 10. Find the top 10 users with the most fans:
 
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
+```
 	Select
 		  Name,
 		  Review_Count,
@@ -551,8 +562,10 @@ SQL code used to arrive at answer:
 	| Fran      |          862 |  124 | 0.143851508121 |
 	| Lissa     |          834 |  120 | 0.143884892086 |
 	+-----------+--------------+------+----------------+
-	
+```
+
 #
+
 11. Is there a strong relationship (or correlation) between having a high number of fans and being listed as "useful" or "funny?" Out of the top 10 users with the highest number of fans, what percent are also listed as “useful” or “funny”?
 
 Key:
@@ -561,8 +574,9 @@ Key:
 76% - 100% - Strong relationship
 
 THERE EXISTS MEDIUM RELATIONSHIP (76%-100%)
-	
-	SQL code used to arrive at answer:
+
+SQL code used to arrive at answer:
+```
 	Select
 	  Id,
 	  Fans,
@@ -576,9 +590,10 @@ THERE EXISTS MEDIUM RELATIONSHIP (76%-100%)
 	  User
 	Order By Fans Desc
 	Limit 10
+```
 
-	
-	Copy and Paste the Result Below:
+Copy and Paste the Result Below:
+```
 	+------------------------+------+--------+--------+----------------+----------------+
 	| id                     | fans | useful |  funny |            FPU |            FPF |
 	+------------------------+------+--------+--------+----------------+----------------+
@@ -594,19 +609,18 @@ THERE EXISTS MEDIUM RELATIONSHIP (76%-100%)
 	| -lh59ko3dxChBSZ9U7LfUw |  120 |    455 |    150 |  26.3736263736 |           80.0 |
 	+------------------------+------+--------+--------+----------------+----------------+
 	
-	
-	Please explain your findings and interpretation of the results:
+```
+Please explain your findings and interpretation of the results:
 
-	Answer/Justification for this question was attempted based on the post by Mentor (Ayush Singh) with reference to question 11:
-	https://www.coursera.org/learn/sql-for-data-science/discussions/all/threads/xkgEEGHqEeiEphLB3FeC3g
+Answer/Justification for this question was attempted based on the post by Mentor (Ayush Singh) with reference to question 11: https://www.coursera.org/learn/sql-for-data-science/discussions/all/threads/xkgEEGHqEeiEphLB3FeC3g
 
-	- A metric was established to determine percent number of Fans per either useful (FPU) or Funny (FPF) review.
-	- Correlation/Relationship was established based on the top 10 users based on number of Fans.
-	- A cursory look at columns FPU and FPF reveals that, by eliminating top users 2, 6, 7, and 10 a relationshiop can be established
-	  between Fans and being listed as useful or funny.
-    - Since 4 records have been eliminated out of 10 (60%), the relationship has been established as Medium (26% - 75% - Medium relationship)
+- A metric was established to determine percent number of Fans per either useful (FPU) or Funny (FPF) review.
+- Correlation/Relationship was established based on the top 10 users based on number of Fans.
+- A cursory look at columns FPU and FPF reveals that, by eliminating top users 2, 6, 7, and 10 a relationshiop can be established between Fans and being listed as useful or funny.
+- Since 4 records have been eliminated out of 10 (60%), the relationship has been established as Medium (26% - 75% - Medium relationship)
 
 #
+
 Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
@@ -616,6 +630,7 @@ Selected Category: Restaurants
 
 Column Truncated Output
 
+```
 +---------------------+-------+-----------------------+--------------+--------------+---------------------------------+-------------+
 | name                | stars | hours                 | review_count | neighborhood | address                         | postal_code |
 +---------------------+-------+-----------------------+--------------+--------------+---------------------------------+-------------+
@@ -641,26 +656,32 @@ Column Truncated Output
 | Big Wong Restaurant |   4.0 | Sunday|10:00-23:00    |          768 | Chinatown    | 5040 Spring Mountain Rd         | 89146       |
 | Big Wong Restaurant |   4.0 | Saturday|10:00-23:00  |          768 | Chinatown    | 5040 Spring Mountain Rd         | 89146       |
 +---------------------+-------+-----------------------+--------------+--------------+---------------------------------+-------------+
+```
 
 i. Do the two groups you chose to analyze have a different distribution of hours?
 
 YES 
+
 Restaurants with 2-3 stars are open from 11:00-0:00
+
 Restaurants with 4-5 stars are open from either 11:00-20:00 or 10:00-23:00
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
 
 YES
+
 Group with 4-5 stars have a higher number of reviews (168 and 768) relative to 2-3 stars
-         
-         
+
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
+
 Restaurants grouping based on star rating had no correlation to their geographical location.
+
 Restaurants Wingstop (2-3 Star Group) and Big Wong (4-5 Star Group) are closer to each other compared to Jacques Cafe and Big Wong (4-5 Star Group)
+
 The geographical vicinity validation was performed by postal_code in google maps. Further more, geographical vicinity can also be validated by latitude and longitude data.
 
 SQL code used for analysis:
-
+```
 Select
   Business.Id,
   Business.Name,
@@ -680,25 +701,28 @@ Inner Join Category On Business.Id = Category.Business_Id
 Inner Join Hours On Business.Id = Hours.Business_Id
 Where (Business.City = 'Las Vegas' AND Category.Category = 'Restaurants')
 Order By Business.Stars
+```
 
 #
+
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 
 Output:
+```
 +---------+---------------+-------------------+
 | is_open |    Avg(Stars) | Avg(Review_Count) |
 +---------+---------------+-------------------+
 |       0 | 3.52039473684 |     23.1980263158 |
 |       1 | 3.67900943396 |     31.7570754717 |
 +---------+---------------+-------------------+
+```
 
 i. Difference 1: Average Star rating of all open businesses > Average Star rating of all closed businesses
-         
-         
+
 ii. Difference 2: Average Review_Count of all open businesses > Average Review_Count of all closed businesses
-         
 
 SQL code used for analysis:
+```
 Select
  Is_Open,
  Avg(Stars),
@@ -706,8 +730,10 @@ Select
 From
   Business
 Group By Is_Open
-	
+```
+
 #
+
 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
@@ -716,18 +742,17 @@ i. Indicate the type of analysis you chose to do:
 
 Find best "Business/Businesses" in "USA" that sells "Pizza" with highest "Star" rating or with "Star" rating in descending order
          
-         
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
 
-As the data does not have a table associated with listing of Menu for each business, 
-take advantage of semantics or keywords from "table: review and column: text." 
-This can be an idea to generate popular Menu for each business using semantics.
+As the data does not have a table associated with listing of Menu for each business, take advantage of semantics or keywords from "table: review and column: text." This can be an idea to generate popular Menu for each business using semantics.
 
-Data Generation Method: 
+Data Generation Method:
 Find best "Business/Businesses" in "United States" that sells "Pizza" with highest "Star" rating or with "Star" rating in descending order
+
 For the case of businesses with identical "Star" rating, use "Review_Count" to sort businesses with equal "Star" rating
 
 Required tables and fields necessary to generate this data
+
 Business:
 	Id
 	Name
@@ -741,9 +766,7 @@ Review:
 	Business_Id
 	Text	  (To find the word "pizza")
 
-The latitude and longitude limits were established using the following links
-As only 4 points are being considered to establish latitude and longitude coordinates, 
-this resulted in a rectangle and few cities form the southern most Canada are listed
+The latitude and longitude limits were established using the following links. As only 4 points are being considered to establish latitude and longitude coordinates, this resulted in a rectangle and few cities form the southern most Canada are listed
 
 a) https://en.wikipedia.org/wiki/List_of_extreme_points_of_the_United_States
 b) https://tools.wmflabs.org/geohack/geohack.php?pagename=Lubec,_Maine&params=44_51_38_N_66_59_5_W_type:city
@@ -756,14 +779,13 @@ Final rough latitude and longitude limits used in SQL Code
 (24.5,-66.5)SouthernMost-EasternMost
 (24.5,-122.5)SouthMost-WesternMost
 
-Additional Comments: This analysis can be further improvised by using sentiment analysis associated with the word "Pizza". 
-Currently accuracy of the SQL query: "Star" rating is not necessarily associated with "Pizza" being the best menu item of the business,
+Additional Comments: This analysis can be further improvised by using sentiment analysis associated with the word "Pizza". Currently accuracy of the SQL query: "Star" rating is not necessarily associated with "Pizza" being the best menu item of the business,
 although most of the results indicate that's the case.
                   
 iii. Output of your finished dataset:
 
 Truncated Output without columns Business_Id and Review."Text"
-
+```
 +---------------------------------+------------+-------+----------+-----------+-------+--------------+
 | name                            | city       | state | latitude | longitude | stars | review_count |
 +---------------------------------+------------+-------+----------+-----------+-------+--------------+
@@ -794,10 +816,10 @@ Truncated Output without columns Business_Id and Review."Text"
 | Rainforest Café                 | Las Vegas  | NV    |  36.1087 |  -115.172 |   2.5 |          444 |
 +---------------------------------+------------+-------+----------+-----------+-------+--------------+
 (Output limit exceeded, 25 of 26 total rows shown)
-
+```
          
 iv. Provide the SQL code you used to create your final dataset:
-
+```
 Select
   Business.Id,
 	Business.Name,
@@ -817,4 +839,4 @@ Where (Review."Text" Like '%Pizza%' AND
 Order By 
   Business.Stars Desc,
   Business.Review_Count Desc
-
+```
