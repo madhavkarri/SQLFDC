@@ -248,6 +248,7 @@ v. Table: User, Column: Review_count
 #
 5. List cities with the most reviews in descending order:
 
+```
 	SQL code used to arrive at answer:
 	
 	Select
@@ -294,14 +295,14 @@ v. Table: User, Column: Review_count
 	| Goodyear        |  1155 |
 	+-----------------+-------+
 	(Output limit exceeded, 25 of 362 total rows shown)
+```
 
 #
 6. Find the distribution of star ratings to the business in the following cities:
 
 SQL code
-
+```
 -- to test appropriate output, use 'Las Vegas' as City
-
 
 -- this code to verify total ratings in a city 
 -- Order By Asc (ascending shows) to show count from 1-star to 5-star for a specific city
@@ -321,7 +322,9 @@ Where
 Order By
   Review.Stars Asc
 -- */
+```
 
+```
 -- this code for star rating distribution
 --/*
 Select
@@ -335,12 +338,12 @@ Where
   Business.City = 'Las Vegas'
 Group By
   Review.Stars
-
+```
 
 i. Avon
 
 SQL code used to arrive at answer:
-
+```
 Select
   Review.Stars,
   Count(Review.Stars) As StarCount
@@ -360,10 +363,12 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 +-------+-----------+
 (Zero rows)
 
+```
 
 ii. Beachwood
 
 SQL code used to arrive at answer:
+```
 Select
   Review.Stars,
   Count(Review.Stars) As StarCount
@@ -384,10 +389,13 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 |     3 |         1 |
 +-------+-----------+
 
+```
+
 #
 7. Find the top 3 users based on their total number of reviews:
-		
-	SQL code used to arrive at answer:
+
+SQL code used to arrive at answer:
+```
 	Select
 	  Name,
 	  Review_Count
@@ -405,6 +413,8 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 	| Sara   |         1629 |
 	| Yuri   |         1339 |
 	+--------+--------------+	
+
+```
 
 #
 8. Does posing more reviews correlate with more fans?
