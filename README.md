@@ -569,9 +569,9 @@ SQL code used to arrive at answer:
 11. Is there a strong relationship (or correlation) between having a high number of fans and being listed as "useful" or "funny?" Out of the top 10 users with the highest number of fans, what percent are also listed as “useful” or “funny”?
 
 Key:
-0% - 25% - Low relationship
-26% - 75% - Medium relationship
-76% - 100% - Strong relationship
+-- 0% - 25% - Low relationship
+-- 26% - 75% - Medium relationship
+-- 76% - 100% - Strong relationship
 
 THERE EXISTS MEDIUM RELATIONSHIP (76%-100%)
 
