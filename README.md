@@ -5,14 +5,15 @@ Using SQL to answer specific questions for an organization and make inferences b
 
 [//]: # (Image References)
 
-[image1]: ./Writeup_IV/Carla_Architecture.png "Carla_Architecture"
+[image1]: ./Writeup_IV/ERYDS.png "ERYDS"
 
 #
+Yelp Data Set
 https://www.yelp.com/dataset/challenge
 
 #
 Entity relationship diagram for the Yelp Data Set
-
+![][image1]
 
 #
 
