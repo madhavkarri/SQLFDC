@@ -4,6 +4,10 @@
 Using SQL to answer specific questions for an organization and make inferences based on the findings. Dataset was from Yelp, which provides a platform for users to provide reviews and rate their interactions with a variety of organizations – businesses, restaurants, health clubs, hospitals, local governmental offices, charitable organizations, etc. Yelp has made a portion of this data available for personal, educational, and academic purposes.
 
 #
+Entity relationship diagram for the Yelp Data Set
+
+
+#
 
 Part 1: Yelp Dataset Profiling and Understanding
 
@@ -14,7 +18,11 @@ Part 1: Yelp Dataset Profiling and Understanding
 --SQL Code
 Select *
 From "table_name"
-	
+
+```
+Output
+```
+
 i. Attribute table = 10000
 ii. Business table = 10000
 iii. Category table = 10000
@@ -167,8 +175,8 @@ Answer: NO
 #
 4. Data aggregation, the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
 
-	i. Table: Review, Column: Stars
-	
+i. Table: Review, Column: Stars
+```	
 		min: 1		max: 5		avg: 3.7082
 		--SQL Code
 		SELECT
@@ -178,9 +186,10 @@ Answer: NO
 		FROM
 		    Review
 
-	
-	ii. Table: Business, Column: Stars
-	
+```
+
+ii. Table: Business, Column: Stars
+```	
 		min: 1		max: 5		avg: 3.6549
 		--SQL Code
 		SELECT
@@ -189,10 +198,10 @@ Answer: NO
 		    Avg(Stars) as Average
 		FROM
 		    Business
+```
 
-	
-	iii. Table: Tip, Column: Likes
-	
+iii. Table: Tip, Column: Likes
+```	
 		min: 0		max: 2		avg: 0.0144
 		--SQL Code
 		SELECT
@@ -201,10 +210,10 @@ Answer: NO
 		    Avg(Likes) as Average
 		FROM
 		    Tip
+```
 
-
-	iv. Table: Checkin, Column: Count
-	
+iv. Table: Checkin, Column: Count
+```	
 		min: 1		max: 53		avg: 1.9414
 		--SQL Code
 		SELECT
@@ -213,10 +222,10 @@ Answer: NO
 		    Avg("Count") as Average
 		FROM
 		    Checkin
-		
-	
-	v. Table: User, Column: Review_count
-	
+```
+
+v. Table: User, Column: Review_count
+```	
 		min: 0		max: 2000	avg: 24.2995
 		--SQL Code
 		SELECT
@@ -225,6 +234,7 @@ Answer: NO
 		    Avg(Review_count) as Average
 		FROM
 		    User
+```
 
 #
 5. List cities with the most reviews in descending order:
