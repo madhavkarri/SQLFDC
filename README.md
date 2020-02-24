@@ -502,7 +502,9 @@ Answer: with word 'love'
 	|        232 |
 	+------------+
 ```	
+
 SQL code used to arrive at answer:
+
 ```
 	--/* to count text entries
 	Select
@@ -610,9 +612,10 @@ Copy and Paste the Result Below:
 	+------------------------+------+--------+--------+----------------+----------------+
 	
 ```
+
 Please explain your findings and interpretation of the results:
 
-Answer/Justification for this question was attempted based on the post by Mentor (Ayush Singh) with reference to question 11: https://www.coursera.org/learn/sql-for-data-science/discussions/all/threads/xkgEEGHqEeiEphLB3FeC3g
+Answer/Justification for this question was attempted based on the post by Mentor (Ayush Singh) with reference to question 11: https://tinyurl.com/rvhwulg
 
 - A metric was established to determine percent number of Fans per either useful (FPU) or Funny (FPF) review.
 - Correlation/Relationship was established based on the top 10 users based on number of Fans.
@@ -625,8 +628,8 @@ Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
 
-Selected City: Las Vegas
-Selected Category: Restaurants
+- Selected City: Las Vegas
+- Selected Category: Restaurants
 
 Column Truncated Output
 
@@ -659,28 +662,21 @@ Column Truncated Output
 ```
 
 i. Do the two groups you chose to analyze have a different distribution of hours?
-
-YES 
-
-Restaurants with 2-3 stars are open from 11:00-0:00
-
-Restaurants with 4-5 stars are open from either 11:00-20:00 or 10:00-23:00
+- YES 
+- Restaurants with 2-3 stars are open from 11:00-0:00
+- Restaurants with 4-5 stars are open from either 11:00-20:00 or 10:00-23:00
 
 ii. Do the two groups you chose to analyze have a different number of reviews?
-
-YES
-
-Group with 4-5 stars have a higher number of reviews (168 and 768) relative to 2-3 stars
+- YES
+- Group with 4-5 stars have a higher number of reviews (168 and 768) relative to 2-3 stars
 
 iii. Are you able to infer anything from the location data provided between these two groups? Explain.
-
-Restaurants grouping based on star rating had no correlation to their geographical location.
-
-Restaurants Wingstop (2-3 Star Group) and Big Wong (4-5 Star Group) are closer to each other compared to Jacques Cafe and Big Wong (4-5 Star Group)
-
-The geographical vicinity validation was performed by postal_code in google maps. Further more, geographical vicinity can also be validated by latitude and longitude data.
+- Restaurants grouping based on star rating had no correlation to their geographical location.
+- Restaurants Wingstop (2-3 Star Group) and Big Wong (4-5 Star Group) are closer to each other compared to Jacques Cafe and Big Wong (4-5 Star Group)
+- The geographical vicinity validation was performed by postal_code in google maps. Further more, geographical vicinity can also be validated by latitude and longitude data.
 
 SQL code used for analysis:
+
 ```
 Select
   Business.Id,
@@ -708,6 +704,7 @@ Order By Business.Stars
 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 
 Output:
+
 ```
 +---------+---------------+-------------------+
 | is_open |    Avg(Stars) | Avg(Review_Count) |
@@ -722,6 +719,7 @@ i. Difference 1: Average Star rating of all open businesses > Average Star ratin
 ii. Difference 2: Average Review_Count of all open businesses > Average Review_Count of all closed businesses
 
 SQL code used for analysis:
+
 ```
 Select
  Is_Open,
@@ -739,20 +737,18 @@ Group By Is_Open
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
 	
 i. Indicate the type of analysis you chose to do: 
-
-Find best "Business/Businesses" in "USA" that sells "Pizza" with highest "Star" rating or with "Star" rating in descending order
+- Find best "Business/Businesses" in "USA" that sells "Pizza" with highest "Star" rating or with "Star" rating in descending order
          
 ii. Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:
-
-As the data does not have a table associated with listing of Menu for each business, take advantage of semantics or keywords from "table: review and column: text." This can be an idea to generate popular Menu for each business using semantics.
+- As the data does not have a table associated with listing of Menu for each business, take advantage of semantics or keywords from "table: review and column: text." This can be an idea to generate popular Menu for each business using semantics.
 
 Data Generation Method:
-Find best "Business/Businesses" in "United States" that sells "Pizza" with highest "Star" rating or with "Star" rating in descending order
-
-For the case of businesses with identical "Star" rating, use "Review_Count" to sort businesses with equal "Star" rating
+- Find best "Business/Businesses" in "United States" that sells "Pizza" with highest "Star" rating or with "Star" rating in descending order
+- For the case of businesses with identical "Star" rating, use "Review_Count" to sort businesses with equal "Star" rating
 
 Required tables and fields necessary to generate this data
 
+```
 Business:
 	Id
 	Name
@@ -765,19 +761,20 @@ Business:
 Review:
 	Business_Id
 	Text	  (To find the word "pizza")
+```
 
 The latitude and longitude limits were established using the following links. As only 4 points are being considered to establish latitude and longitude coordinates, this resulted in a rectangle and few cities form the southern most Canada are listed
 
-a) https://en.wikipedia.org/wiki/List_of_extreme_points_of_the_United_States
-b) https://tools.wmflabs.org/geohack/geohack.php?pagename=Lubec,_Maine&params=44_51_38_N_66_59_5_W_type:city
-c) https://tools.wmflabs.org/geohack/geohack.php?pagename=List_of_extreme_points_of_the_United_States&params=49_00_08.6_N_122_15_40_W_region:US_type:landmark&title=Sumas%2C+WA
-d) https://tools.wmflabs.org/geohack/geohack.php?pagename=Ballast_Key&params=24_31_26_N_81_57_51_W_region:US-FL_type:isle
+- a) https://en.wikipedia.org/wiki/List_of_extreme_points_of_the_United_States
+- b) https://tools.wmflabs.org/geohack/geohack.php?pagename=Lubec,_Maine&params=44_51_38_N_66_59_5_W_type:city
+- c) https://tools.wmflabs.org/geohack/geohack.php?pagename=List_of_extreme_points_of_the_United_States&params=49_00_08.6_N_122_15_40_W_region:US_type:landmark&title=Sumas%2C+WA
+- d) https://tools.wmflabs.org/geohack/geohack.php?pagename=Ballast_Key&params=24_31_26_N_81_57_51_W_region:US-FL_type:isle
 
 Final rough latitude and longitude limits used in SQL Code
-(49,-66.5) NorthernMost-EasternMost
-(49,-122.5)NorthMost-WesternMost
-(24.5,-66.5)SouthernMost-EasternMost
-(24.5,-122.5)SouthMost-WesternMost
+- (49,-66.5) NorthernMost-EasternMost
+- (49,-122.5)NorthMost-WesternMost
+- (24.5,-66.5)SouthernMost-EasternMost
+- (24.5,-122.5)SouthMost-WesternMost
 
 Additional Comments: This analysis can be further improvised by using sentiment analysis associated with the word "Pizza". Currently accuracy of the SQL query: "Star" rating is not necessarily associated with "Pizza" being the best menu item of the business,
 although most of the results indicate that's the case.
@@ -785,6 +782,7 @@ although most of the results indicate that's the case.
 iii. Output of your finished dataset:
 
 Truncated Output without columns Business_Id and Review."Text"
+
 ```
 +---------------------------------+------------+-------+----------+-----------+-------+--------------+
 | name                            | city       | state | latitude | longitude | stars | review_count |
@@ -819,6 +817,7 @@ Truncated Output without columns Business_Id and Review."Text"
 ```
          
 iv. Provide the SQL code you used to create your final dataset:
+
 ```
 Select
   Business.Id,
