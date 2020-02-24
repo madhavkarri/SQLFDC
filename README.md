@@ -248,9 +248,8 @@ v. Table: User, Column: Review_count
 #
 5. List cities with the most reviews in descending order:
 
-```
-	SQL code used to arrive at answer:
-	
+SQL code used to arrive at answer:
+```	
 	Select
 	  City,
 	  -- total review counts
@@ -419,14 +418,15 @@ SQL code used to arrive at answer:
 #
 8. Does posing more reviews correlate with more fans?
 	
-	NO
-	More reviews does not necessarily mean more fabs
+NO
 
-	Please explain your findings and interpretation of the results:
+More reviews does not necessarily mean more fans
 
-	A quick analysis of number of reviews and number of fans shows that 
-	user Amy with maximum number of fans (503) has a review count of 609, less than user Gerald who has a review count of 2000
+Please explain your findings and interpretation of the results:
 
+A quick analysis of number of reviews and number of fans shows that user Amy with maximum number of fans (503) has a review count of 609, less than user Gerald who has a review count of 2000
+
+```
 	+--------+--------------+------+----------------+
 	| name   | review_count | fans |            RFR |
 	+--------+--------------+------+----------------+
@@ -434,8 +434,10 @@ SQL code used to arrive at answer:
 	| Mimi   |          968 |  497 | 0.513429752066 |
 	| Harald |         1153 |  311 | 0.269731136167 |
 	+--------+--------------+------+----------------+
+```
 
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
+```
 	Select
 	  Name,
 	  Review_Count,
@@ -446,10 +448,10 @@ SQL code used to arrive at answer:
 	  User
 	Order By
 	  Fans Desc
-	
-	A further analysis of fans per review count shows that
-	user Rebecca has the maximum number of fans per review basis
+```
 
+A further analysis of fans per review count shows that user Rebecca has the maximum number of fans per review basis
+```
 	+---------+--------------+------+------+
 	| name    | review_count | fans |  RFR |
 	+---------+--------------+------+------+
@@ -457,8 +459,10 @@ SQL code used to arrive at answer:
 	| Susan   |            6 |   63 | 10.5 |
 	| Nelson  |            7 |   70 | 10.0 |
 	+---------+--------------+------+------+
+```
 
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer:
+```
 	Select
 	  Name,
 	  Review_Count,
@@ -470,12 +474,13 @@ SQL code used to arrive at answer:
 	Order By
 	  RFR Desc
 	Limit 3
+```
 
 #
 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
-	Answer: with word 'love'
-
+Answer: with word 'love'
+```
 	+------------+
 	| Count_Love |
 	+------------+
@@ -487,8 +492,9 @@ SQL code used to arrive at answer:
 	+------------+
 	|        232 |
 	+------------+
-	
-	SQL code used to arrive at answer:
+```	
+SQL code used to arrive at answer:
+```
 	--/* to count text entries
 	Select
 	  Id,
@@ -512,6 +518,7 @@ SQL code used to arrive at answer:
 	  Review
 	Where
 	  "Text" Like '%hate%'
+```
 
 #
 10. Find the top 10 users with the most fans:
