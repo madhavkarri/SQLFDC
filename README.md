@@ -10,7 +10,7 @@ Part 1: Yelp Dataset Profiling and Understanding
 #
 1. Data Profiling: Finding total number of records for each of the tables
 
-'''
+```
 --SQL Code
 Select *
 From "table_name"
@@ -27,12 +27,12 @@ ix. review table = 10000
 x. tip table = 10000
 xi. user table = 10000
 
-'''
+```
 
 #
 2. Find distinct records, either by foreign key or primary key
 
-'''
+```
 i. Business = 10000
 --SQL Code
 Select DISTINCT Id
@@ -109,14 +109,13 @@ xi. Elite_years = 2780
 Select DISTINCT User_Id
 From Elite_Years
 
-'''
+```
 
 #
 3. Columns with null values in the Users table? Indicate "yes," or "no."
-
-	Answer: NO
+Answer: NO
 	
-	
+```
 	SQL code used to arrive at answer:
 	Select
 	  id,
@@ -162,6 +161,8 @@ From Elite_Years
 	  compliment_funny IS Null OR
 	  compliment_writer IS Null OR
 	  compliment_photos IS Null
+
+```
 
 #
 4. Data aggregation, the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
